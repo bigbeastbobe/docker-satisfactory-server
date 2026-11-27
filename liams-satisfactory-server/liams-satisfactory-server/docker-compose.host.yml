@@ -1,0 +1,12 @@
+# FALLBACK — only use this if joins still drop with ConnectionTimeout.
+# Runs the server on the host network, so Docker's port translation
+# is out of the picture entirely.
+#
+# Docker Desktop: first turn on Settings -> Resources -> Network ->
+# "Enable host networking". Then, from this folder, run:
+#   docker compose -f docker-compose.yml -f docker-compose.host.yml up -d --build
+
+services:
+  satisfactory:
+    network_mode: host
+    ports: !reset []
